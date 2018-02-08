@@ -1,5 +1,6 @@
 Project=CoreOSMakefiles
 
+MAKEFILEPATH= /Library/Developer/CommandLineTools/Makefiles
 Destination = $(MAKEFILEPATH)/CoreOS
 BSDMAKEDIR  = /usr/share/mk/CoreOS
 BSDSUFFIX   = .mk
@@ -12,7 +13,7 @@ STANDARD    = Standard
 install:
 	@$(MAKE) installsrc SRCROOT=$(DSTROOT)$(Destination)
 	rm -f $(DSTROOT)$(Destination)/Makefile
-	mv -f $(DSTROOT)$(Destination)/bin $(DSTROOT)$(MAKEFILEPATH)
+	mv $(DSTROOT)$(Destination)/bin $(DSTROOT)$(MAKEFILEPATH)
 	install -d $(DSTROOT)$(BSDMAKEDIR)/$(STANDARD)
 	@set -x && \
 	    for i in $(INBASENAMES); do \
